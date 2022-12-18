@@ -61,6 +61,20 @@ const result = [
     elaboration: ["https://github.com/vladislav1010/my-turborepo; $2"],
     sources: [sources["CSS is all about relationships"]],
   },
+  {
+    id: 6,
+    elaboration: [
+      "https://github.com/vladislav1010/my-turborepo; .github/contributing/style-guide.md; CSS; Руководство; 1.",
+      `
+      - Optimize for reader;
+      - Without the explicit in-place evidence of design, readers can likely figure out this intent, though it would take a bit more digging on the part of each reader working through the code;
+      - Implementation comments (the comments interspersed throughout the code itself) justify or highlight non-obvious choices, explain tricky bits, and underscore important parts of the code;
+      - Consistency is what enables any engineer to jump into an unfamiliar part of the codebase and get to work fairly quickly;
+      - When a codebase is internally consistent in its style and norms, engineers writing code and others reading it can focus on what’s getting done rather than how it is presented.
+      `,
+    ],
+    sources: [sources["8. Style Guides and Rules"]],
+  },
 ] as const;
 
 const _test: readonly Elaboration[] = result;
