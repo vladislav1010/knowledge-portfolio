@@ -3,26 +3,18 @@ import keyBy from "./utils/keyBy";
 export type Source = {
   id: number;
   name: string;
-  parentId?: number | undefined;
   excerpt?: string;
   recursive?: boolean;
 };
 
-const defaults: Partial<Source> = {
+const sourceDefaults = {
   recursive: true,
-  excerpt: undefined,
-  parentId: undefined,
-};
+} as const satisfies Partial<Source>;
 
-const result = [
+const sources = [
   {
     id: 1,
     name: "https://www.componentdriven.org/",
-  },
-  {
-    id: 2,
-    name: "Design process overview",
-    parentId: 1,
   },
   {
     id: 3,
@@ -35,40 +27,34 @@ const result = [
   {
     id: 5,
     name: "16. Learning the domain",
-    parentId: 4,
   },
   {
     id: 6,
     name: "21. Understanding a story",
-    parentId: 4,
   },
   {
     id: 7,
     excerpt:
       "remedy some of the problem areas that came up in our Event Storming/Modelling session.",
     name: "remedy… Storming/Modelling session.",
-    parentId: 6,
   },
   {
     id: 8,
     name: "13. Features (use-cases) are the key",
-    parentId: 4,
   },
   {
     id: 9,
     name: 'Output events are all about enabling… use case"',
-    parentId: 8,
   },
   {
     id: 10,
     name: "Use cases are invoked… to domain events.",
     excerpt:
       "Use cases are invoked by either an actor (be it a user, a server, an automation) or through a subscription to an event. To decouple logic across separate modules, subdomains and microservices, we subscribe to domain events.",
-    parentId: 8,
   },
   {
     id: 11,
-    name: "https://khalilstemmler.com/articles/client-side-architecture/layers/#Containercontroller ;NR",
+    name: "https://khalilstemmler.com/articles/client-side-architecture/layers/#Containercontroller; NR",
     recursive: false,
   },
   {
@@ -82,7 +68,6 @@ const result = [
   {
     id: 14,
     name: "CSS is all about relationships",
-    parentId: 15,
   },
   {
     id: 15,
@@ -95,16 +80,57 @@ const result = [
   {
     id: 17,
     name: "8. Style Guides and Rules",
-    parentId: 18,
   },
   {
     id: 18,
     name: "Software Engineering at Google",
   },
-] as const;
+] as const satisfies readonly Source[];
 
-const _test: readonly Source[] = result;
+const ks = keyBy(sources, "name");
 
-const keyedResult = keyBy(result, "name");
+type SourceTree = readonly (Source & {
+  parent?: Source;
+})[];
 
-export default keyedResult;
+const sourcesTree = [
+  {
+    ...ks["13. Features (use-cases) are the key"],
+    parent: ks["solidbook"],
+  },
+  {
+    ...ks["16. Learning the domain"],
+    parent: ks.solidbook,
+  },
+  {
+    ...ks["21. Understanding a story"],
+    parent: ks.solidbook,
+  },
+  {
+    ...ks["8. Style Guides and Rules"],
+    parent: ks["Software Engineering at Google"],
+  },
+  {
+    ...ks["remedy… Storming/Modelling session."],
+    parent: ks["21. Understanding a story"],
+  },
+  {
+    ...ks['Output events are all about enabling… use case"'],
+    parent: ks["13. Features (use-cases) are the key"],
+  },
+  {
+    ...ks["Use cases are invoked… to domain events."],
+    parent: ks["13. Features (use-cases) are the key"],
+  },
+  {
+    ...ks["CSS is all about relationships"],
+    parent: ks["CSS Demystified"],
+  },
+] as const satisfies SourceTree;
+
+const kst = keyBy(sourcesTree, "name");
+
+const result = { ...ks, ...kst } as const;
+
+export { sourceDefaults };
+export default result;
