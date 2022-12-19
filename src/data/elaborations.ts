@@ -35,7 +35,7 @@ const result = [
     elaboration: ["https://github.com/vladislav1010/my-turborepo; $3"],
     sources: [
       sources[
-        "https://khalilstemmler.com/articles/client-side-architecture/layers/#Containercontroller ;NR"
+        "https://khalilstemmler.com/articles/client-side-architecture/layers/#Containercontroller @!recursive"
       ],
       sources[
         "https://khalilstemmler.com/articles/client-side-architecture/layers/#Containercontroller:~:text=is%20responsible%20for,that%20need%20it"
@@ -83,6 +83,13 @@ const result = [
     sources: [
       sources["https://cbea.ms/git-commit/"],
       sources["http://who-t.blogspot.com/2009/12/on-commit-messages.html"],
+    ],
+  },
+  {
+    id: 8,
+    elaboration: [""],
+    sources: [
+      sources["How We Figure Things Out — The Psychology of Human Action"],
     ],
   },
 ] as const;
