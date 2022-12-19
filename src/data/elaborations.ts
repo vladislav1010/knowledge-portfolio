@@ -26,7 +26,7 @@ const result = [
   {
     id: 2,
     sources: [
-      sources['Output events are all about enabling… use case"'],
+      sources["Output events are all about enabling… use case"],
       sources["Use cases are invoked… to domain events."],
     ],
     elaboration: [

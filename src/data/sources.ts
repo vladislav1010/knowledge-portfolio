@@ -37,7 +37,7 @@ const sources = [
     name: ["13. Features (use-cases) are the key"],
   },
   {
-    name: ['Output events are all about enabling… use case"'],
+    name: ["Output events are all about enabling… use case"],
   },
   {
     name: ["Use cases are invoked… to domain events."],
@@ -125,7 +125,7 @@ const sourcesWithParent = [
     parent: ks["21. Understanding a story"],
   },
   {
-    ...ks['Output events are all about enabling… use case"'],
+    ...ks["Output events are all about enabling… use case"],
     parent: ks["13. Features (use-cases) are the key"],
   },
   {
