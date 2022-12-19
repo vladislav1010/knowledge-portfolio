@@ -1,13 +1,11 @@
-import sources, { Source } from "./sources";
+import sources, { SourceWithParent } from "./sources";
 
 type Question = {
   id: number;
   question: string;
-  sourcesQuestion: readonly Source[];
+  sourcesQuestion: readonly SourceWithParent[];
 };
 
-const result = [] as const;
-
-const _test: readonly Question[] = result;
+const result = [] as const satisfies readonly Question[];
 
 export default result;

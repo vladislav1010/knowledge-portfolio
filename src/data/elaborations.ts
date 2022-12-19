@@ -1,8 +1,11 @@
-import sources, { Source } from "./sources";
+import sources, { SourceWithParent } from "./sources";
 
 type Elaboration = {
   id: number;
-  sources: readonly (Source | readonly [Source, { primary?: boolean }])[];
+  sources: readonly (
+    | SourceWithParent
+    | readonly [SourceWithParent, { primary?: boolean }]
+  )[];
   elaboration: readonly string[];
 };
 
@@ -92,8 +95,6 @@ const result = [
       sources["How We Figure Things Out — The Psychology of Human Action"],
     ],
   },
-] as const;
-
-const _test: readonly Elaboration[] = result;
+] as const satisfies readonly Elaboration[];
 
 export default result;
