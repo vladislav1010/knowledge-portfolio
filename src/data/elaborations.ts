@@ -2,7 +2,7 @@ import sources, { Source } from "./sources";
 
 type Elaboration = {
   id: number;
-  sources: readonly (Source | readonly [source: Source, primary: boolean])[];
+  sources: readonly (Source | readonly [Source, { primary?: boolean }])[];
   elaboration: readonly string[];
 };
 
@@ -47,7 +47,7 @@ const result = [
         sources[
           "https://khalilstemmler.com/articles/client-side-architecture/layers/#Presentation-components-are-an-implementation-detail"
         ],
-        true,
+        { primary: true },
       ],
     ],
   },
