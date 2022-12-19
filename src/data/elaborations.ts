@@ -75,6 +75,16 @@ const result = [
     ],
     sources: [sources["8. Style Guides and Rules"]],
   },
+  {
+    id: 7,
+    elaboration: [
+      "https://github.com/vladislav1010/my-turborepo/commit/d2d17659a1b480e4310ea6c64a03ba48ad5858aa; сообщение фиксации",
+    ],
+    sources: [
+      sources["https://cbea.ms/git-commit/"],
+      sources["http://who-t.blogspot.com/2009/12/on-commit-messages.html"],
+    ],
+  },
 ] as const;
 
 const _test: readonly Elaboration[] = result;

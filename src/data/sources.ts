@@ -1,4 +1,4 @@
-import keyBy from "./utils/keyBy";
+import keyBy, { KeyBy, Temp } from "./utils/keyBy";
 
 export type Source = {
   id: number;
@@ -85,15 +85,23 @@ const sources = [
     id: 18,
     name: "Software Engineering at Google",
   },
-] as const satisfies readonly Source[];
+  {
+    id: 19,
+    name: "https://cbea.ms/git-commit/",
+  },
+  {
+    id: 20,
+    name: "http://who-t.blogspot.com/2009/12/on-commit-messages.html",
+  },
+] as const;
 
 const ks = keyBy(sources, "name");
 
-type SourceTree = readonly (Source & {
+export type SourcesWithParent = readonly (Source & {
   parent?: Source;
 })[];
 
-const sourcesTree = [
+const sourcesWithParent = [
   {
     ...ks["13. Features (use-cases) are the key"],
     parent: ks["solidbook"],
@@ -126,11 +134,15 @@ const sourcesTree = [
     ...ks["CSS is all about relationships"],
     parent: ks["CSS Demystified"],
   },
-] as const satisfies SourceTree;
+] as const;
 
-const kst = keyBy(sourcesTree, "name");
+const kst = keyBy(sourcesWithParent, "name");
 
-const result = { ...ks, ...kst } as const;
+const result = { ...ks, ...kst } as const satisfies KeyBy<
+  "name",
+  SourcesWithParent,
+  Temp<"name", SourcesWithParent>
+>;
 
 export { sourceDefaults };
 export default result;
