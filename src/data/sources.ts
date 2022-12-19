@@ -6,6 +6,10 @@ export type Source = {
   recursive?: boolean;
 };
 
+function joinedName(x: SourceWithParent) {
+  return x.name.length === 1 ? x.name[0] : `${x.name[0]} @${x.name[1]}`;
+}
+
 const sourceDefaults = {
   recursive: true,
 } as const satisfies Partial<Source>;
@@ -146,5 +150,5 @@ const kst = keyBy(sourcesWithParent, "name");
 
 const result = { ...ks, ...kst } as const;
 
-export { sourceDefaults };
+export { sourceDefaults, joinedName };
 export default result;

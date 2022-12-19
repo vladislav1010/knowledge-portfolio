@@ -38,7 +38,7 @@ function keyBy<
   >[],
   T extends Temp<TKey, T1>
 >(arr: T1, key: TKey): KeyBy<TKey, T1, T> {
-  return untypedKeyBy(arr, key);
+  return untypedKeyBy(arr, key) as any;
 }
 
 export default keyBy;

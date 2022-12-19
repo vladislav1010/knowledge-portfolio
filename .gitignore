@@ -1,2 +1,4 @@
 node_modules
 .lh
+/meili_data
+.env
