@@ -1,4 +1,4 @@
-import keyBy, { KeyBy, Temp } from "./utils/keyBy";
+import keyBy from "./utils/keyBy";
 
 export type Source = {
   name: readonly [name: string, meta: string] | readonly [string];
@@ -89,6 +89,11 @@ const sources = [
   },
   {
     name: ["How We Figure Things Out — The Psychology of Human Action"],
+  },
+  {
+    name: [
+      "https://lihautan.com/extract-parameters-type-from-string-literal-types-with-typescript/",
+    ],
   },
 ] as const satisfies readonly Source[];
 
