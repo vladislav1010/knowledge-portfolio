@@ -90,7 +90,7 @@ const result = [
   },
   {
     id: 8,
-    elaboration: [""],
+    elaboration: ["https://github.com/vladislav1010/my-turborepo; $4"],
     sources: [
       sources["How We Figure Things Out — The Psychology of Human Action"],
     ],
