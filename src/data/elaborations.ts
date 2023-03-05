@@ -14,7 +14,7 @@ const result = [
     id: 1,
     sources: [
       sources[
-        "file:///G:/YandexDisk/Books/Event%20Modeling_%20What%20is%20it_%20-%20Event%20Modeling.html"
+        "https://eventmodeling.org/posts/what-is-event-modeling/"
       ],
       sources["16. Learning the domain"],
       sources["21. Understanding a story"],
