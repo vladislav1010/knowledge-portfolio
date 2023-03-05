@@ -20,7 +20,7 @@ const sources = [
   },
   {
     name: [
-      "file:///G:/YandexDisk/Books/Event%20Modeling_%20What%20is%20it_%20-%20Event%20Modeling.html",
+      "https://eventmodeling.org/posts/what-is-event-modeling/",
     ],
   },
   {
